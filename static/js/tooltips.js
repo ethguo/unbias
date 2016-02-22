@@ -5,7 +5,7 @@ $(document).ready(function()
 	$('.tooltip-text').each(function() {
 		$(this).qtip({
 			content: {
-				text: $("#tooltip-content" + ).next('.tooltip-content')
+				text: $(this).next('.tooltip-content')
 			},
 			hide: {
 				fixed: true,
