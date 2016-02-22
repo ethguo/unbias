@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Unbias - Online Bias Checker</title>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
+	<link rel="stylesheet" href="static/css/index.css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+	<script src="static/js/tooltips.js"></script>
+</head>
+<body>
+	<div>
+		{% for s, a in sentences %}
+			{% if a %}
+				<span class="tooltip-text">{{ s }}</span>
+				<div class="tooltip-content">
+					{{ a }}
+				</div>
+			{% else %}
+				{{ s }}
+			{% endif %}
+		{% endfor %}
+	</div>
+
+	<hr />
+	<div>
+		{% for e in extras %}
+			<pre>{{ e }}</pre>
+		{% endfor %}
+	</div>
+
+</body>
+</html>
