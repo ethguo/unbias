@@ -10,29 +10,30 @@
 	<script src="static/js/tooltips.js"></script>
 </head>
 <body>
-	<div>
-		{% for text, annotations in sentences %}
-			{% if annotations %}
-				<span class="tooltip-text">{{ text }}</span>
-				<div class="tooltip-content">
-					<ul>
-						{% for a in annotations %}
-							<li>{{ a }}</li>
-						{% endfor %}
-					</ul>
-				</div>
-			{% else %}
-				{{ text }}
-			{% endif %}
-		{% endfor %}
-	</div>
+	<div id="main">
+		<div id="result-box">
+			{% for text, annotations in sentences %}
+				{% if annotations %}
+					<span class="tooltip-text">{{ text }}</span>
+					<div class="tooltip-content">
+						<ul>
+							{% for a in annotations %}
+								<li>{{ a }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% else %}
+					{{ text }}
+				{% endif %}
+			{% endfor %}
+		</div>
 
-	<hr />
-	<div>
-		{% for e in extras %}
-			<pre>{{ e }}</pre>
-		{% endfor %}
+		<hr />
+		<div>
+			{% for e in extras %}
+				<pre>{{ e }}</pre>
+			{% endfor %}
+		</div>
 	</div>
-
 </body>
 </html>

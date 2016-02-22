@@ -1,11 +1,3 @@
-.tooltip-text {
-	text-decoration: underline;
-}
-
-.tooltip-content {
-	display: none;
-}
-
 #main {
 
 	margin: auto;
@@ -18,4 +10,20 @@
 
 	text-align: center;
 
+}
+
+#result-box {
+
+}
+
+.tooltip-text {
+	text-decoration: underline;
+}
+
+.tooltip-content {
+	display: none;
+}
+
+.tooltip-content ul {
+	padding-left: 1em;
 }
