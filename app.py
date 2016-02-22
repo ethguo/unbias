@@ -21,12 +21,10 @@ alchemyapi = AlchemyAPI()
 def annotate(s, entities, keywords):
 	a = []
 
-	s = s.lower()
-
 	for dic in [entities, keywords]:
 		for key, value in dic.iteritems():
 
-			if s.find(key.lower()) > -1:
+			if s.lower().find(key.lower()) != -1:
 				a.append("Possible " + value + " bias towards \"" + key + "\"")
 
 	if len(a) == 0: a = None
