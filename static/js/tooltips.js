@@ -1,7 +1,5 @@
-// Create the tooltips only when document ready
 $(document).ready(function()
 {
-	// MAKE SURE YOUR SELECTOR MATCHES SOMETHING IN YOUR HTML!!!
 	$('.tooltip-text').each(function() {
 		$(this).qtip({
 			content: {
@@ -10,6 +8,13 @@ $(document).ready(function()
 			hide: {
 				fixed: true,
 				delay: 300
+			},
+			style: {
+				classes: "qtip-bootstrap"
+			},
+			position: {
+				my: "top left",
+				at: "bottom left"
 			}
 		});
 	});
