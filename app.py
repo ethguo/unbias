@@ -107,4 +107,4 @@ def get_result():
 #	epp = json.dumps(entities, sort_keys=True, indent=4, separators=(',', ': '))
 #	kpp = json.dumps(keywords, sort_keys=True, indent=4, separators=(',', ': '))
 
-app.run(debug=True)
+app.run()
