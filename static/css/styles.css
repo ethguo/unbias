@@ -1,49 +1,73 @@
 body {
-	background-color: #F0DDA5;
+	background-color: #F2E8D5;
+	font-family: 'Droid Serif', serif;
+	font-size: 12pt;
+	line-height: 150%;
 }
 
 #main {
 	margin: auto;
-	width: 60%;
 	padding: 2em;
-}
-
-#title, #subheading {
 	text-align: center;
-	color: #522E22;
+	width: 60%;
 }
 
-#text {
-	padding-top: 10px;
-	width: 90%;
+#title {
+	color: #6D2B00;
+	font-size: 400%;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#description {
 	margin: auto;
-	text-align: center;
+	width: 80%;
 }
 
-#textfield {
-	width: 80%;
+#prompt-text {
+	margin-top: 1em;
+}
+
+#textfield, #result-box {
+	border: none;
+	font-family: 'Droid Serif', serif;
+	font-size: 12pt;
+	line-height: 150%;
 	min-width: 500px;
+	padding: 0.75em;
+	margin: auto;
+	text-align: left;
+	width: 80%;
 }
 
 #submit {
-	width: 5%;
-	margin: auto;
+	background-color: #DB5600;
+	border: none;
+	color: #FFFFFF;
+	font-family: 'Droid Serif', serif;
+	font-size: 12pt;
+	font-weight: bold;
+	margin-top: 1em;
+	padding: 0.5em 1.5em;
+	transition: .5s;
+}
+
+#submit:hover {
+	background-color: #6D2B00;
 }
 
 #result-box {
-	padding-top: 10px;
-	margin: auto;
-	width: 60%;
+	margin-bottom: 2em;
 }
 
 .tooltip-text {
-	text-decoration: underline;
-	color: #22221E;
+	color: #DB5600;
 	transition: .5s;
 }
 
 .tooltip-text:hover {
-	color: #BB0D17;
+	background-color: #EDAB80;
+	color: #6D2B00;
 }
 
 .tooltip-content {
@@ -51,5 +75,10 @@ body {
 }
 
 .tooltip-content ul {
-	padding-left: 1em;
+	padding-left: 1.25em;
+}
+
+::selection {
+	background-color: #EDAB80;
+	color: #6D2B00;
 }

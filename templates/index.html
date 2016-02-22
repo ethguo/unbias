@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Unbias - Online Bias Checker</title>
 
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,400bold' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
 	<link rel="stylesheet" type="text/css" href="static/css/base.css" />
 	<link rel="stylesheet" type="text/css" href="static/css/styles.css" />
@@ -15,24 +16,27 @@
 <body>
 	<div id="main">
 		<h1 id="title">Unbias</h1>
-
-		<div id="result-box">
-			<span class="tooltip-text">Unbais is an online bias checker that will analyze text and determine where there are biased statements.</span>
-			<div class="tooltip-content">
-				<ul>
-					<li>Possible positive bias towards "Unbias"</li>
-				</ul>
+		<div id="description">
+			<div id="summary">
+				Unbias is an online bias checker that will analyze text and look for potentially biased statements. It will highlight any issues, and you can hover over them for more information. <span class="tooltip-text">Unbias is pretty awesome.</span>
+				<div class="tooltip-content">
+					<ul>
+						<li>Possible positive bias towards "Unbias"</li>
+					</ul>
+				</div>
 			</div>
+
+			<p id="prompt-text">Paste your text below and press submit. An example is filled in if you just want to try it out.</p>
+		
 		</div>
 
-		<p id="subheading">Please paste the text you want checked for biases into the box below and press submit.</p>
-
-		<hr/>
-		<form action="/result" method="post" autocomplete="off" id="form">
-			<div id="text">
-				<textarea name="doc" rows=10 id="textfield">Credit cards offer many advantages. There is the convenience of being able to buy needed items now and the security of not having to carry cash. You also receive fraud protection and in some cases rewards for making purchases. With these advantages also come responsibilities. You need to manage credit cards wisely by understanding all of the card's terms and conditions; stay on top of payments; and realize the true cost of purchases made with credit. Using a credit card is like taking out a loan. If you don't pay your card balance in full each month, you'll pay interest on that loan. </textarea>
-			</div><div id="submit">
-				<input type="submit" value="Submit"/>
+		<hr />
+		
+		<form id="input-form" action="/result" method="POST" autocomplete="off">
+			<div>
+				<textarea name="doc" id="textfield">{{ defaultDoc }}</textarea>
+			</div><div>
+				<input type="submit" id="submit" value="Unbias"/>
 			</div>
 		</form>
 	</div>
