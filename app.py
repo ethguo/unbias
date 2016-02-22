@@ -21,8 +21,8 @@ alchemyapi = AlchemyAPI()
 def annotate(s, entities, keywords, concepts):
 	a = []
 
-	for dict in [entities, keywords, concepts]:
-		for key, value in dict.iteritems():
+	for dic in [entities, keywords, concepts]:
+		for key, value in dic.iteritems():
 
 			if s.find(key) > -1:
 				a.append("Possible " + value + " bias towards " + key)
