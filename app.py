@@ -50,9 +50,9 @@ def get_result():
 		entities = combined["entities"]
 		keywords = combined["keywords"]
 		concepts = combined["concepts"]
-		topicEntities = filter(lambda e: e["relevance"] > TOPIC_ENTITIES_THRESHOLD, entities)
-		topicKeywords = filter(lambda k: k["relevance"] > TOPIC_KEYWORDS_THRESHOLD, keywords)
-		topicConcepts = filter(lambda c: c["relevance"] > TOPIC_CONCEPTS_THRESHOLD, concepts)
+		topicEntities = filter(lambda e: float(e["relevance"]) > TOPIC_ENTITIES_THRESHOLD, entities)
+		topicKeywords = filter(lambda k: float(k["relevance"]) > TOPIC_KEYWORDS_THRESHOLD, keywords)
+		topicConcepts = filter(lambda c: float(c["relevance"]) > TOPIC_CONCEPTS_THRESHOLD, concepts)
 
 		docSentences = tokenize.sent_tokenize(doc)
 
