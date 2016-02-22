@@ -1,0 +1,55 @@
+body {
+	background-color: #F0DDA5;
+}
+
+#main {
+	margin: auto;
+	width: 60%;
+	padding: 2em;
+}
+
+#title, #subheading {
+	text-align: center;
+	color: #522E22;
+}
+
+#text {
+	padding-top: 10px;
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+
+#textfield {
+	width: 80%;
+	min-width: 500px;
+}
+
+#submit {
+	width: 5%;
+	margin: auto;
+}
+
+#result-box {
+	padding-top: 10px;
+	margin: auto;
+	width: 60%;
+}
+
+.tooltip-text {
+	text-decoration: underline;
+	color: #22221E;
+	transition: .5s;
+}
+
+.tooltip-text:hover {
+	color: #BB0D17;
+}
+
+.tooltip-content {
+	display: none;
+}
+
+.tooltip-content ul {
+	padding-left: 1em;
+}
