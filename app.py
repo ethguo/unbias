@@ -25,7 +25,7 @@ def annotate(s, entities, keywords, concepts):
 		for key, value in dict.iteritems():
 
 			if s.find(key) > -1:
-				a.append("Possible " + value " bias towards " + key)
+				a.append("Possible " + value + " bias towards " + key)
 
 	if len(a) == 0: a = None
 
