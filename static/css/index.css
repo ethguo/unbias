@@ -5,3 +5,17 @@
 .tooltip-content {
 	display: none;
 }
+
+#main {
+
+	margin: auto;
+	width: 60%;
+	padding: 10px;
+
+}
+
+#title, #subheading {
+
+	text-align: center;
+
+}
