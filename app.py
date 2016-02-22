@@ -21,10 +21,12 @@ alchemyapi = AlchemyAPI()
 def annotate(s, entities, keywords):
 	a = []
 
+	s = s.lower()
+
 	for dic in [entities, keywords]:
 		for key, value in dic.iteritems():
 
-			if s.find(key) > -1:
+			if s.find(key.lower()) > -1:
 				a.append("Possible " + value + " bias towards " + key)
 
 	if len(a) == 0: a = None
@@ -63,15 +65,15 @@ def get_result():
 		topicKeywords = filter(lambda k: float(k["relevance"]) > TOPIC_KEYWORDS_THRESHOLD, keywords)
 		topicConcepts = filter(lambda c: float(c["relevance"]) > TOPIC_CONCEPTS_THRESHOLD, concepts)
 		biasedEntities = {}
-		for e in entities:
+		for e in topicEntities:
 			if "score" in e["sentiment"].keys():
 				if (abs(float(e["sentiment"]["score"])) > ENTITY_SENTIMENT_THRESHOLD):
 					biasedEntities[e["text"]] = e["sentiment"]["type"]
 
 		biasedKeywords = {}
-		for k in keywords:
+		for k in topicKeywords:
 			if "score" in k["sentiment"].keys():
-				if (abs(float(k["sentiment"]["score"])) > ENTITY_SENTIMENT_THRESHOLD):
+				if (abs(float(k["sentiment"]["score"])) > KEYWORD_SENTIMENT_THRESHOLD):
 					biasedKeywords[k["text"]] = k["sentiment"]["type"]
 
 		docSentences = tokenize.sent_tokenize(doc)
