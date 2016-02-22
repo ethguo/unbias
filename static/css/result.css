@@ -13,7 +13,9 @@
 }
 
 #result-box {
-
+	padding-top: 10px;
+	margin: auto;
+	width: 60%;
 }
 
 .tooltip-text {
