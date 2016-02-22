@@ -1,3 +1,11 @@
+.tooltip-text {
+	text-decoration: underline;
+}
+
+.tooltip-content {
+	display: none;
+}
+
 #main {
 
 	margin: auto;
