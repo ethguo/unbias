@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Unbias - Online Bias Checker</title>
 
-	<link rel="stylesheet" type="text/css" href="static/css/index.css"/>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/index.css" />
 
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+	<script src="static/js/tooltips.js"></script>
 </head>
 <body>
-<div id="main">
-	<h1 id="title">Bias Checker</h1>
-	<p id="subheading">Please paste the text you want checked for biases into the box below and press submit.</p>
+	<div id="main">
+		<h1 id="title">Bias Checker</h1>
+		<p id="subheading">Please paste the text you want checked for biases into the box below and press submit.</p>
 
-	<hr/>
-	<form action="/result" method="post" autocomplete="off" id="form">
-		<div id="text">
-			<textarea name="doc" rows=10 id="textfield">Credit cards offer many advantages. There is the convenience of being able to buy needed items now and the security of not having to carry cash. You also receive fraud protection and in some cases rewards for making purchases. With these advantages also come responsibilities. You need to manage credit cards wisely by understanding all of the card's terms and conditions; stay on top of payments; and realize the true cost of purchases made with credit. Using a credit card is like taking out a loan. If you don't pay your card balance in full each month, you'll pay interest on that loan. </textarea>
-		</div><div id="submit">
-			<input type="submit" value="Submit"/>
-		</div>
-	</form>
-</div>
-
+		<hr/>
+		<form action="/result" method="post" autocomplete="off" id="form">
+			<div id="text">
+				<textarea name="doc" rows=10 id="textfield">Credit cards offer many advantages. There is the convenience of being able to buy needed items now and the security of not having to carry cash. You also receive fraud protection and in some cases rewards for making purchases. With these advantages also come responsibilities. You need to manage credit cards wisely by understanding all of the card's terms and conditions; stay on top of payments; and realize the true cost of purchases made with credit. Using a credit card is like taking out a loan. If you don't pay your card balance in full each month, you'll pay interest on that loan. </textarea>
+			</div><div id="submit">
+				<input type="submit" value="Submit"/>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
