@@ -2,16 +2,20 @@
 <html>
 <head>
 	<title>INPUT FORM</title>
+
+	<link rel="stylesheet" type="text/css" href="/css/design.css">
+
 </head>
 <body>
+<div id="main">
+	<h1 id="title">Bias Checker</h1>
+	<p id="subheading">Please paste the text you want checked for biases into the box bellow and press submit.</p>
 
-<h1>Bias Checker</h1>
-<p>Please paste the text you want checked for biases into the box bellow and press submit.</p>
-
-<form action="/response" method="post" autocomplete="off">
-	<textarea name="doc" rows="6" cols="60"></textarea><br>
-	<input type="submit" value="Submit">
-</form>
+	<form action="/response" method="post" autocomplete="off" id="form">
+		<textarea name="doc" rows="6" cols="60"></textarea><br>
+		<input type="submit" value="Submit" id="button">
+	</form>
+</div>
 
 </body>
 </html>
