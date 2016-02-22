@@ -18,10 +18,10 @@ CONCEPT_SENTIMENT_THRESHOLD = 0.25
 
 alchemyapi = AlchemyAPI()
 
-def annotate(s, entities, keywords, concepts):
+def annotate(s, entities, keywords):
 	a = []
 
-	for dic in [entities, keywords, concepts]:
+	for dic in [entities, keywords]:
 		for key, value in dic.iteritems():
 
 			if s.find(key) > -1:
@@ -62,16 +62,21 @@ def get_result():
 		topicEntities = filter(lambda e: float(e["relevance"]) > TOPIC_ENTITIES_THRESHOLD, entities)
 		topicKeywords = filter(lambda k: float(k["relevance"]) > TOPIC_KEYWORDS_THRESHOLD, keywords)
 		topicConcepts = filter(lambda c: float(c["relevance"]) > TOPIC_CONCEPTS_THRESHOLD, concepts)
-		biasedEntitiesList = filter(lambda e: float(e["sentiment"]["score"]) > ENTITY_SENTIMENT_THRESHOLD, entities)
-		biasedEntities = {biasedEntitiesList[i]["text"]: biasedEntitiesList[i]["sentiment"]["type"] for i in range(len(biasedEntitiesList))}
-		biasedKeywordsList = filter(lambda e: float(e["sentiment"]["score"]) > ENTITY_SENTIMENT_THRESHOLD, entities)
-		biasedKeywords = {biasedKeywordsList[i]["text"]: biasedKeywordsList[i]["sentiment"]["type"] for i in range(len(biasedKeywordsList))}
-		biasedConceptsList = filter(lambda e: float(e["sentiment"]["score"]) > ENTITY_SENTIMENT_THRESHOLD, entities)
-		biasedConcepts = {biasedConceptsList[i]["text"]: biasedConceptsList[i]["sentiment"]["type"] for i in range(len(biasedConceptsList))}
+		biasedEntities = {}
+		for e in entities:
+			if "score" in e["sentiment"].keys():
+				if (abs(float(e["sentiment"]["score"])) > ENTITY_SENTIMENT_THRESHOLD):
+					biasedEntities[e["text"]] = e["sentiment"]["type"]
+
+		biasedKeywords = {}
+		for k in keywords:
+			if "score" in k["sentiment"].keys():
+				if (abs(float(k["sentiment"]["score"])) > ENTITY_SENTIMENT_THRESHOLD):
+					biasedKeywords[k["text"]] = k["sentiment"]["type"]
 
 		docSentences = tokenize.sent_tokenize(doc)
 
-		sentencesAnnotated = [ annotate(s, biasedEntities, biasedKeywords, biasedConcepts) for s in docSentences]
+		sentencesAnnotated = [ annotate(s, biasedEntities, biasedKeywords) for s in docSentences]
 
 		template = jinja_env.get_template("result.html")
 
